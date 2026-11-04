@@ -24,6 +24,7 @@ async function getBrowser(): Promise<Browser> {
   if (!browser || !browser.isConnected()) {
     browser = await puppeteer.launch({
       headless: true,
+      protocolTimeout: 120000,
       args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-gpu"],
     });
     exportCount = 0;
